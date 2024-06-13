@@ -1,0 +1,25 @@
+.Card{
+    background-color: rgb(153, 152, 97);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 50px;
+    border-radius: 5%;
+    padding: 8px;
+    border: solid;
+    border-color: rgb(61, 149, 184);
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+}
+.PokeImage{
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    justify-content: center;
+    max-width: 120px;
+    max-width: 120px;
+    
+    
+}
