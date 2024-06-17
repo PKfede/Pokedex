@@ -1,31 +1,40 @@
 import React, { useState } from 'react'
-import styles from '../styles/card.module.css'
+import styles from '../styles/cardStats.module.css'
+import typeLibrary from '../assets/typesImg/assetIndex'
 
 const CardStats = ({ data }: any) => {
     const { types } = data
-    const test = []
+    const nameType = []
+    const imageType = []
+    let count = 0
     if (types) {
-        console.log(types)
         for (const typeName of types) {
-            test.push(typeName.type.name)
+            nameType.push(typeName.type.name)
+            imageType.push(typeName.type.url)
         }
-        console.log(test)
+
     }
 
+
+
+
     return (
-        <div className={styles.Card} >
-            <img className={styles.PokeImage}
-                src={`https://projectpokemon.org/images/normal-sprite/${data.name}.gif`}
-            />
-            <div>
-                <p>Name: {data.name} </p>
-                <p>Weight: {data.weight} </p>
-                <p>{test.map((val) => {
-                    return <p>type: {val}</p>
-                })} </p>
-
-
+        <div className={styles.CardStats}>
+            <h1>{data.name} </h1>
+            <div className={styles.Layout}>
+                <img className={styles.PokeImage}
+                    src={`https://projectpokemon.org/images/normal-sprite/${data.name}.gif`}
+                />
+                <div className={styles.StatsValues}>
+                    <p>Weight: {data.weight} </p>
+                    {nameType.map((val) => {
+                        count++
+                        return <p><img src={Object(typeLibrary)[val]} alt="" /> </p>
+                        // return <p>type {count}: {val} <img src={Object(typeLibrary)[val]} alt="" /> </p>
+                    })}
+                </div>
             </div>
+
         </div>)
 
 }

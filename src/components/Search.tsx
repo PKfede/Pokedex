@@ -1,21 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import styles from '../styles/search.module.css'
 
 const Search = ({ setSearchInput }: any) => {
 
     const [input, setInput] = useState('')
 
     return (
-        <div>
-            <input type="text" onChange={(e) => {
+        <div className={styles.SearchLayout}>
+            <input className={styles.SearchInput} type="text" onChange={(e) => {
                 setInput(e.target.value)
             }} />
-            <button onClick={() => {
-                setSearchInput(input)
-            }}>Search</button>
-            <button onClick={() => {
-                setSearchInput('')
-            }}>Reset</button>
+            <div className={styles.SearchButtonsLayout}>
+                <button onClick={() => {
+                    setSearchInput(input)
+                }}>Search</button>
+                <button onClick={() => {
+                    setSearchInput('')
+                }}>Reset</button>
+            </div>
+
         </div>
     );
 };

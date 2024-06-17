@@ -1,0 +1,43 @@
+.CardStats {
+  background-color: rgb(97, 119, 153);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 50px;
+  border-radius: 10px;
+  padding: 8px;
+  border: solid;
+  border-color: rgb(61, 149, 184);
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  flex-direction: column;
+}
+.PokeImage {
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  background-color: aqua;
+}
+
+.Layout{
+    display: flex;
+    background-color: red;
+    align-items: center;
+    width: inherit;
+    height: 250px;
+    justify-content: space-around;
+    border-radius: 10px;
+    
+}
+
+.StatsValues{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: blue;
+  align-items: flex-start;
+}
