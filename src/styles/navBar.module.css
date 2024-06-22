@@ -1,5 +1,14 @@
 .NavBar{
-    background-color: aqua;
-    height: 200px;
-    width: auto;
+        background-color: gray;
+            height: 115px;
+            width: auto;
+            display: flex;
+            align-items: center;
+}
+
+.Button{
+    background-color: transparent;
+    margin: 10px;
+    width: 90px;
+    height: 50px;
 }

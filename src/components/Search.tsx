@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from '../styles/search.module.css'
 
 const Search = ({ setSearchInput }: any) => {

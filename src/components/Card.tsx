@@ -12,7 +12,7 @@ const Card = ({ name, setSearchInput }: any) => {
             </button>
 
             <div>
-                {name}
+                {(name).toUpperCase()}
             </div>
         </div>
 
