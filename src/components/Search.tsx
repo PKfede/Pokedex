@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from '../styles/search.module.css'
 
-const Search = ({ setSearchInput }: any) => {
+const Search = ({ setSearchInput, setFound }: any) => {
 
     const [input, setInput] = useState('')
 
@@ -16,6 +16,7 @@ const Search = ({ setSearchInput }: any) => {
                 }}>Search</button>
                 <button onClick={() => {
                     setSearchInput('')
+                    setFound(true)
                 }}>Reset</button>
             </div>
 

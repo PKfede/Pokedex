@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "../components/Card";
 import Search from "../components/Search";
 import CardStats from "../components/CardStats";
 import Pagination from "@mui/material/Pagination";
 import styles from "../styles/app.module.css";
+import CardList from "../components/CardList";
 
 const Pokedex = () => {
     const [pokemon, setPokemon] = useState<any[]>([]);
     const [searchInput, setSearchInput] = useState<string>("");
-    const [searchResult, setSearchResult] = useState();
+    const [searchResult, setSearchResult] = useState({});
     const [pageNumber, setPage] = useState<number>(1);
     const [countNumber, setCount] = useState<number>(0);
     const [searching, setSearching] = useState(false);
-    const [notFound, setFound] = useState(false)
+    const [notFound, setFound] = useState(true)
 
     useEffect(() => {
         const fetchApiSearch = async () => {
@@ -22,17 +22,12 @@ const Pokedex = () => {
                 const apiData = await axios.get(
                     `https://pokeapi.co/api/v2/pokemon/${searchInput}`
                 );
-
-
                 setSearching(true);
                 setSearchResult(apiData.data);
                 setFound(true)
-                console.log(notFound, "good")
 
             } catch (error) {
-
                 setFound(false)
-                console.log(notFound, "bad")
             }
         };
 
@@ -56,32 +51,27 @@ const Pokedex = () => {
 
         fetchApi();
     }, [searchInput, pageNumber]);
+
+    if (!notFound) {
+        return <p>not found2</p>
+    }
     return (
         <div className={styles.screen}>
-            <Search setSearchInput={setSearchInput} />
+            <Search setSearchInput={setSearchInput} setFound={setFound} />
             <div className={styles.layout}>
                 {searching && <CardStats found={notFound} data={searchResult} />}
-                {!searching && (
-                    <div className={styles.layout}>
-                        {pokemon.map((poke, index) => {
-                            return (
-                                <Card
-                                    key={index}
-                                    name={poke.name}
-                                    setSearchInput={setSearchInput}
-                                />
-                            );
-                        })}
-                        <Pagination
-                            size="large"
-                            count={countNumber}
-                            variant="outlined"
-                            onChange={(e, page) => {
-                                setPage(page);
-                            }}
-                        />
-                    </div>
-                )}
+                {!searching && <div className={styles.layout}>
+                    <CardList pokemon={pokemon} found={notFound} count={countNumber} setPage={setPage} setSearchInput={setSearchInput} />
+                    <Pagination
+                        size="large"
+                        count={countNumber}
+                        variant="outlined"
+                        onChange={(e, page) => {
+                            setPage(page);
+                        }}
+                    />
+                </div>
+                }
             </div>
         </div>
     );
