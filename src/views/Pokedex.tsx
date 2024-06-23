@@ -13,16 +13,27 @@ const Pokedex = () => {
     const [pageNumber, setPage] = useState<number>(1);
     const [countNumber, setCount] = useState<number>(0);
     const [searching, setSearching] = useState(false);
+    const [notFound, setFound] = useState(false)
 
     useEffect(() => {
         const fetchApiSearch = async () => {
-            const apiData = await axios.get(
-                `https://pokeapi.co/api/v2/pokemon/${searchInput}`
-            );
 
-            setSearching(true);
-            //setSearchResult(apiData.data)
-            setSearchResult(apiData.data);
+            try {
+                const apiData = await axios.get(
+                    `https://pokeapi.co/api/v2/pokemon/${searchInput}`
+                );
+
+
+                setSearching(true);
+                setSearchResult(apiData.data);
+                setFound(true)
+                console.log(notFound, "good")
+
+            } catch (error) {
+
+                setFound(false)
+                console.log(notFound, "bad")
+            }
         };
 
         if (searchInput !== "") {
@@ -31,7 +42,7 @@ const Pokedex = () => {
         if (searchInput === "") {
             setSearching(false);
         }
-    }, [searchInput]);
+    }, [searchInput, notFound]);
 
     useEffect(() => {
         const fetchApi = async () => {
@@ -49,7 +60,7 @@ const Pokedex = () => {
         <div className={styles.screen}>
             <Search setSearchInput={setSearchInput} />
             <div className={styles.layout}>
-                {searching && <CardStats data={searchResult} />}
+                {searching && <CardStats found={notFound} data={searchResult} />}
                 {!searching && (
                     <div className={styles.layout}>
                         {pokemon.map((poke, index) => {
