@@ -10,6 +10,7 @@ import {
 import Navbar from './components/Navbar.tsx'
 import Home from './views/Home.tsx'
 import Pokedex from './views/Pokedex.tsx';
+import TheaterPrices from './views/TheaterPrices.tsx';
 
 
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="Pokedex" element={<Pokedex />}></Route>
+        <Route path="TheaterPrices" element={<TheaterPrices />}></Route>
         <Route path="Home" element={<Home />}></Route>
       </Routes>
     </BrowserRouter>

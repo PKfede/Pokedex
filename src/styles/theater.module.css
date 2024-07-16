@@ -1,0 +1,85 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  align-items: center;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+  color: white;
+  background-color: rgb(43, 44, 72);
+  margin: 100px;
+  width: 1000px;
+}
+.sections {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  background-color: blue;
+}
+.bottom {
+  display: flex;
+  height: 40%;
+  width: 100%;
+  color: black;
+}
+.bottom2 {
+  display: flex;
+  height: 40%;
+  color: black;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  background-color: azure;
+  width: 50%;
+  align-items: center;
+  margin: 20px;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  background-color: blueviolet;
+  width: 50%;
+  align-items: center;
+  margin: 20px;
+}
+.carousel {
+  width: 400px;
+  height: 500px;
+  margin: 10px;
+}
+.foodImg {
+  width: 125px;
+  height: 125px;
+}
+
+.btnFood {
+  background-color: transparent;
+}
+
+.foodSection {
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.aa {
+  background-color: rgb(67, 84, 84);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.active {
+  background-color: grey;
+}
+.inactive {
+  background-color: white;
+}

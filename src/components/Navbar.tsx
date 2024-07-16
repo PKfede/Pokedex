@@ -7,6 +7,7 @@ const Navbar = () => {
         <div className={styles.NavBar}>
             <button className={styles.Button}><Link to="/Home">Home</Link></button>
             <button className={styles.Button}><Link to="/Pokedex">Pokedex</Link></button>
+            <button className={styles.Button}><Link to="/TheaterPrices">TheaterPrices</Link></button>
         </div>
     )
 }
