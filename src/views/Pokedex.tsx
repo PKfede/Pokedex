@@ -40,8 +40,7 @@ const Pokedex = () => {
   useEffect(() => {
     const fetchApi = async () => {
       const apiData = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?limit=6&offset=${
-          (pageNumber - 1) * 6
+        `https://pokeapi.co/api/v2/pokemon?limit=6&offset=${(pageNumber - 1) * 6
         }`
       );
       setCount(apiData.data.count / 6);
