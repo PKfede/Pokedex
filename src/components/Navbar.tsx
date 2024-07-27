@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../styles/navBar.module.css'
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -8,6 +8,7 @@ const Navbar = () => {
             <button className={styles.Button}><Link to="/Home">Home</Link></button>
             <button className={styles.Button}><Link to="/Pokedex">Pokedex</Link></button>
             <button className={styles.Button}><Link to="/TheaterPrices">TheaterPrices</Link></button>
+            <button className={styles.Button}><Link to="/RickMorty">RickMorty</Link></button>
         </div>
     )
 }
