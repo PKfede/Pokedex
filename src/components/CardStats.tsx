@@ -26,23 +26,23 @@ const CardStats = ({ data, found }: any) => {
           <div className={styles.LeftLayout}>
             <img
               className={styles.PokeImage}
-              src={`https://projectpokemon.org/images/normal-sprite/${data.name}.gif`}
+              src={data.sprites.other["official-artwork"].front_default}
             />
             {
-              data.types.map((val: any) => {
+              data.types.map((val: any, index: number) => {
                 if (pokeType !== data.types[0].type.name) {
                   setPokeType(data.types[0].type.name)
                 }
                 return (
-                  <img key={val.id} className={styles.TypeImage} src={Object(typeLibrary)[val.type.name]} alt="" />
+                  <img key={index} className={styles.TypeImage} src={typeLibrary[val.type.name as keyof typeof typeLibrary]} alt="" />
                 );
               })}
           </div>
           <div className={styles.RightLayout}>
             <p>Weight: {data.weight} </p>
-            {data.stats.map((val: any) => {
+            {data.stats.map((val: any, index: number) => {
               return (
-                <p key={val.id}>
+                <p key={index}>
                   {val.stat.name.toUpperCase()}: {val.base_stat}{" "}
                 </p>
               );

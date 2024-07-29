@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../styles/card.module.css";
 
-const Card = ({ name, setSearchInput }: any) => {
+const Card = ({ name, id, setSearchInput }: any) => {
+
   return (
     <div className={styles.Card}>
       <button
@@ -12,10 +13,9 @@ const Card = ({ name, setSearchInput }: any) => {
       >
         <img
           className={styles.PokeImage}
-          src={`https://projectpokemon.org/images/normal-sprite/${name}.gif`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
         />
       </button>
-
       <div className={styles.PokeName}>{name.toUpperCase()}</div>
     </div>
   );

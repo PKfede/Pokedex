@@ -16,8 +16,9 @@ const CardList = ({
   return (
     <>
       {pokemon.map((poke: any, index: any) => {
+        const id = poke.url.split("/")
         return (
-          <Card key={index} name={poke.name} setSearchInput={setSearchInput} />
+          <Card key={index} name={poke.name} id={id[id.length - 2]} setSearchInput={setSearchInput} />
         );
       })}
       <Pagination
