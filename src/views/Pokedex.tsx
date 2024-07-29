@@ -15,40 +15,48 @@ const Pokedex = () => {
   const [searching, setSearching] = useState(false);
   const [notFound, setFound] = useState(true);
 
+  const fetchAll = async () => {
+
+    const fetchData = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon?limit=6&offset=${(pageNumber - 1) * 6
+      }`
+    );
+    const apiData = await fetchData
+    setCount(apiData.data.count / 6);
+    setPokemon(apiData.data.results);
+  };
+
+
+
+  const fetchOne = async () => {
+    try {
+      const fetchData = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${searchInput}`
+      );
+
+      const apiData = await fetchData
+      setSearching(true);
+      setSearchResult(apiData.data);
+      setFound(true);
+    } catch (error) {
+      setFound(false);
+    }
+  };
+
+
   useEffect(() => {
-    const fetchApiSearch = async () => {
-      try {
-        const apiData = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${searchInput}`
-        );
-        setSearching(true);
-        setSearchResult(apiData.data);
-        setFound(true);
-      } catch (error) {
-        setFound(false);
-      }
-    };
+    fetchAll()
+  }, [searchInput, pageNumber]);
+
+  useEffect(() => {
 
     if (searchInput !== "") {
-      fetchApiSearch();
+      fetchOne();
     }
     if (searchInput === "") {
       setSearching(false);
     }
   }, [searchInput, notFound]);
-
-  useEffect(() => {
-    const fetchApi = async () => {
-      const apiData = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?limit=6&offset=${(pageNumber - 1) * 6
-        }`
-      );
-      setCount(apiData.data.count / 6);
-      setPokemon(apiData.data.results);
-    };
-
-    fetchApi();
-  }, [searchInput, pageNumber]);
 
   return (
     <div className={styles.screen}>
