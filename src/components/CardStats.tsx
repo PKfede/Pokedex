@@ -12,7 +12,13 @@ const CardStats = ({ data, found }: any) => {
   const [pokeType, setPokeType] = useState('')
 
   const assignColor = () => {
-    setColor(colorLibrary[data.types[0].type.name as keyof typeof colorLibrary]);
+    if (data.types[1]) {
+      setColor(`linear-gradient(90deg, ${colorLibrary[data.types[0].type.name as keyof typeof colorLibrary]} 42%, ${colorLibrary[data.types[1].type.name as keyof typeof colorLibrary]} 61%)`);
+    } else {
+      setColor(colorLibrary[data.types[0].type.name as keyof typeof colorLibrary]);
+    }
+
+
   }
 
   useEffect(() => {
@@ -20,7 +26,7 @@ const CardStats = ({ data, found }: any) => {
   }, [pokeType])
   return (
     <>
-      <div className={styles.CardStats} style={{ backgroundColor: color }}>
+      <div className={styles.CardStats} style={{ background: color }}>
         <h1>{data.name.toUpperCase()} </h1>
         <div className={styles.Layout}>
           <div className={styles.LeftLayout}>

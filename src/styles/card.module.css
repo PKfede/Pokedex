@@ -10,8 +10,8 @@
   border-color: #a9c0bc;
   border-width: 20px;
   flex-direction: column;
-  width: 200px;
-  min-height: 200px;
+  width: 250px;
+  height: 350px;
   justify-content: center;
 }
 .PokeImage {
@@ -24,4 +24,12 @@
 
 .PokeName {
   margin: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.TypeImage {
+  margin-top: 20px;
+  border: solid;
+  width: 150px;
 }

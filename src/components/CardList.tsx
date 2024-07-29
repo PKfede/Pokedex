@@ -13,6 +13,7 @@ const CardList = ({
     return <p>not found2</p>;
   }
 
+
   return (
     <>
       {pokemon.map((poke: any, index: any) => {

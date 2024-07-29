@@ -1,24 +1,24 @@
 
 
 const colorLibrary = {
-    normal: "#919aa2",
-    fighting: "#cc456d",
-    flying: "#8dacdc",
-    poison: "#ac6cca",
-    ground: "#da7b45",
-    rock: "#c4b48b",
-    bug: "#93c32d",
-    ghost: "#546cac",
-    steel: "#5c8ca3",
-    fire: "#fb9b54",
-    water: "#5393d3",
-    grass: "#66bc5e",
+    normal: "rgba(145, 154, 162, 1)",
+    fighting: "rgba(204, 69, 109, 1)",
+    flying: "rgba(141, 172, 220, 1)",
+    poison: "rgba(172, 108, 202, 1)",
+    ground: "rgba(218, 123, 69, 1)",
+    rock: "rgba(196, 180, 139, 1)",
+    bug: "rgba(147, 195, 45, 1)",
+    ghost: "rgba(84, 108, 172, 1)",
+    steel: "rgba(92, 140, 163, 1)",
+    fire: "rgba(251, 155, 84, 1)",
+    water: "rgba(83, 147, 211, 1)",
+    grass: "rgba(102, 188, 94, 1)",
     electric: "yellow",
-    psychic: "#f9757c",
-    ice: "#74ccc2",
-    dragon: "#0f6ec4",
-    dark: "#44444c",
-    fairy: "#eb8de3"
+    psychic: "rgba(249, 117, 124, 1)",
+    ice: "rgba(116, 204, 194, 1)",
+    dragon: "rgba(15, 110, 196, 1)",
+    dark: "rgba(68, 68, 76, 1)",
+    fairy: "rgba(235, 141, 227, 1)"
 
 
 }
